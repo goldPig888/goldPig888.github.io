@@ -1,1 +1,3 @@
-May Lynn's personalized profolio
+May Lynn's personalized portfolio
+
+https://goldpig888.github.io/
