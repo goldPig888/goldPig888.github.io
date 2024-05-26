@@ -157,3 +157,43 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  const counters = document.querySelectorAll('.counter');
+  const speed = 5000; // The higher the number, the slower the animation
+
+  const animateCounters = (entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const counter = entry.target;
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+        const increment = target / speed;
+
+        const updateCount = () => {
+          const currentCount = +counter.innerText;
+
+          if (currentCount < target) {
+            counter.innerText = Math.ceil(currentCount + increment);
+            setTimeout(updateCount, 600); // Adjust timeout to control speed
+          } else {
+            counter.innerText = target;
+          }
+        };
+
+        updateCount();
+        observer.unobserve(counter);
+      }
+    });
+  };
+
+  const observer = new IntersectionObserver(animateCounters, {
+    threshold: 1.0
+  });
+
+  counters.forEach((counter, index) => {
+    setTimeout(() => {
+      observer.observe(counter);
+    }, index * 1000); // Delay each counter's observation by 1 second
+  });
+});

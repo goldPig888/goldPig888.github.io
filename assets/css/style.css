@@ -1027,9 +1027,6 @@ main {
 }
 
 
-
-
-
 /*-----------------------------------*\
   #BLOG
 \*-----------------------------------*/
@@ -1062,7 +1059,7 @@ main {
 
 .blog-banner-box {
   width: 100%;
-  height: 200px;
+  height: auto;
   border-radius: 12px;
   overflow: hidden;
 }
@@ -1113,9 +1110,6 @@ main {
   font-weight: var(--fw-300);
   line-height: 1.6;
 }
-
-
-
 
 
 /*-----------------------------------*\
@@ -1752,10 +1746,37 @@ textarea.form-input::-webkit-resizer { display: none; }
    * BLOG
    */
 
-  .blog-banner-box { height: 230px; }
+  .blog-banner-box { height: 500px; }
 
 }
 
+/* Stats Counter Styles */
+.stats-counter {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  border-top: 2px solid #ccc;
+}
+
+.counter-item {
+  text-align: center;
+  margin: 20px; /* Add margin for better spacing */
+}
+
+.counter {
+  display: block;
+  font-size: 3rem;
+  color: #e6f4f4;
+  font-weight: bold;
+}
+
+.counter-caption {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  color: #e2e2e2;
+}
 
 
 
