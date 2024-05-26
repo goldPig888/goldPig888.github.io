@@ -197,3 +197,33 @@ document.addEventListener("DOMContentLoaded", () => {
     }, index * 1000); // Delay each counter's observation by 1 second
   });
 });
+
+
+//this is for the background color change
+let ticking = false;
+
+  function updateSmokyBlack() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrollFraction = scrollTop / docHeight;
+
+    const startColor = [244, 89, 7]; 
+    const endColor = [228, 47, 26];
+
+    const newColor = startColor.map((start, index) => {
+      const end = endColor[index];
+      return start + (end - start) * scrollFraction;
+    });
+
+    const newHSL = `hsl(${newColor[0]}, ${newColor[1]}%, ${newColor[2]}%)`;
+    document.documentElement.style.setProperty('--smoky-black', newHSL);
+
+    ticking = false;
+  }
+
+  document.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(updateSmokyBlack);
+      ticking = true;
+    }
+  });
