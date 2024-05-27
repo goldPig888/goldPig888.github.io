@@ -64,7 +64,7 @@
 
   --white-1: hsl(0, 0%, 100%);
   --white-2: hsl(0, 0%, 98%);
-  --orange-yellow-crayola: hsl(0, 100%, 72%);
+  --orange-yellow-crayola: hsla(0, 100%, 72%, 0.999);
   --vegas-gold: hsl(0, 100%, 70%);
   --light-gray: hsl(0, 0%, 84%);
   --light-gray-70: hsla(0, 0%, 84%, 0.7);
@@ -1027,20 +1027,19 @@ main {
   font-weight: var(--fw-300);
 }
 
-
 /*-----------------------------------*\
-  #BLOG
+  #ART
 \*-----------------------------------*/
 
-.blog-posts { margin-bottom: 10px; }
+.art-posts { margin-bottom: 10px; }
 
-.blog-posts-list {
+.art-posts-list {
   display: grid;
   grid-template-columns: 1fr;
   gap: 20px;
 }
 
-.blog-post-item > a {
+.art-post-item > a {
   position: relative;
   background: var(--border-gradient-onyx);
   height: 100%;
@@ -1049,7 +1048,7 @@ main {
   z-index: 1;
 }
 
-.blog-post-item > a::before {
+.art-post-item > a::before {
   content: "";
   position: absolute;
   inset: 1px;
@@ -1058,25 +1057,25 @@ main {
   z-index: -1;
 }
 
-.blog-banner-box {
+.art-banner-box {
   width: 100%;
   height: auto;
   border-radius: 12px;
   overflow: hidden;
 }
 
-.blog-banner-box img {
+.art-banner-box img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: var(--transition-1);
 }
 
-.blog-post-item > a:hover .blog-banner-box img { transform: scale(1.1); }
+.art-post-item > a:hover .art-banner-box img { transform: scale(1.1); }
 
-.blog-content { padding: 15px; }
+.art-content { padding: 15px; }
 
-.blog-meta {
+.art-meta {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -1084,35 +1083,44 @@ main {
   margin-bottom: 10px;
 }
 
-.blog-meta :is(.blog-category, time) {
+.art-meta :is(.art-category, time) {
   color: var(--light-gray-70);
   font-size: var(--fs-6);
   font-weight: var(--fw-300);
 }
 
-.blog-meta .dot {
+.art-meta .dot {
   background: var(--light-gray-70);
   width: 4px;
   height: 4px;
   border-radius: 4px;
 }
 
-.blog-item-title {
+.art-item-title {
   margin-bottom: 10px;
   line-height: 1.3;
   transition: var(--transition-1);
 }
 
-.blog-post-item > a:hover .blog-item-title { color: var(--orange-yellow-crayola); }
+.art-post-item > a:hover .art-item-title { color: var(--orange-yellow-crayola); }
 
-.blog-text {
+.art-text {
   color: var(--light-gray);
   font-size: var(--fs-6);
   font-weight: var(--fw-300);
   line-height: 1.6;
 }
 
+.twitter-link {
+  color: #00e9ff;
+  font-size: smaller;
+  cursor: pointer; /* Makes it look like a clickable link */
+  text-decoration: none;
+}
 
+.twitter-link:hover {
+  text-decoration: underline;
+}
 /*-----------------------------------*\
   #CONTACT
 \*-----------------------------------*/
@@ -1239,11 +1247,11 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 
   /**
-   * #PORTFOLIO, BLOG 
+   * #PORTFOLIO, ART 
    */
 
   .project-img,
-  .blog-banner-box { height: auto; }
+  .art-banner-box { height: auto; }
 
 }
 
@@ -1498,14 +1506,14 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 
   /**
-   * #PORTFOLIO, BLOG
+   * #PORTFOLIO, ART
    */
 
-  .project-img, .blog-banner-box { border-radius: 16px; }
+  .project-img, .art-banner-box { border-radius: 16px; }
 
-  .blog-posts-list { gap: 30px; }
+  .art-posts-list { gap: 30px; }
 
-  .blog-content { padding: 25px; }
+  .art-content { padding: 25px; }
 
 
 
@@ -1617,9 +1625,9 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .filter-item button.active { color: var(--orange-yellow-crayola); }
 
-  /* portfolio and blog grid */
+  /* portfolio and art grid */
 
-  .project-list, .blog-posts-list { grid-template-columns: 1fr 1fr; }
+  .project-list, .art-posts-list { grid-template-columns: 1fr 1fr; }
 
 
 
@@ -1744,10 +1752,10 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 
   /**
-   * BLOG
+   * ART
    */
 
-  .blog-banner-box { height: 500px; }
+  .art-banner-box { height: 500px; }
 
 }
 
@@ -1755,15 +1763,18 @@ textarea.form-input::-webkit-resizer { display: none; }
 .stats-counter {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap; /* Allow flex items to wrap */
   justify-content: center;
   align-items: center;
-  padding: 50px;
+  padding: 20px; /* Reduce padding for mobile */
   border-top: 2px solid #ccc;
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
 }
 
 .counter-item {
   text-align: center;
-  margin: 20px; /* Add margin for better spacing */
+  margin: 10px; /* Adjust margin for better spacing on mobile */
+  flex: 1 1 100px; /* Allow items to grow and shrink, with a minimum width */
 }
 
 .counter {
